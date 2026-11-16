@@ -1,0 +1,29 @@
+<form class="buscador" (submit)="$event.preventDefault(); buscar.emit(nombre.value)">
+  <label>
+    {{ etiqueta() }}
+    <input #nombre type="search" placeholder="Ej: pikachu o 25" [disabled]="cargando()">
+  </label>
+  <button type="submit" [disabled]="cargando()">Buscar</button>
+</form>
+
+@if (navegacion()) {
+  <div class="navegacion">
+    <button type="button" class="navegar" (click)="anterior.emit()" [disabled]="cargando() || !puedeRetroceder()">
+      « Anterior
+    </button>
+    <button type="button" class="navegar" (click)="siguiente.emit()" [disabled]="cargando() || !puedeAvanzar()">
+      Siguiente »
+    </button>
+    <button type="button" class="navegar" (click)="aleatorio.emit()" [disabled]="cargando()">
+      Aleatorio
+    </button>
+  </div>
+}
+
+@if (cargando()) {
+  <p class="estado" role="status">Buscando Pokémon...</p>
+}
+
+@if (error()) {
+  <p class="error" role="alert">{{ error() }}</p>
+}

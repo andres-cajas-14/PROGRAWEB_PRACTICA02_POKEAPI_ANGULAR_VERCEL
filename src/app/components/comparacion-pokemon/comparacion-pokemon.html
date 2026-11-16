@@ -1,0 +1,41 @@
+<section class="comparacion">
+  <h2>Comparación de estadísticas</h2>
+
+  <div class="tabla">
+    <table>
+      <thead>
+        <tr>
+          <th>Estadística</th>
+          <th>
+            @if (a().imagen; as imagenA) {
+              <img [src]="imagenA" [alt]="a().nombre">
+            }
+            <span class="nombre">{{ a().nombre }}</span>
+          </th>
+          <th>
+            @if (b().imagen; as imagenB) {
+              <img [src]="imagenB" [alt]="b().nombre">
+            }
+            <span class="nombre">{{ b().nombre }}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (fila of filas(); track fila.nombre) {
+          <tr>
+            <td>{{ fila.nombre }}</td>
+            <td [class.mayor]="fila.a > fila.b">{{ fila.a }}</td>
+            <td [class.mayor]="fila.b > fila.a">{{ fila.b }}</td>
+          </tr>
+        }
+        <tr class="total">
+          <td>Total</td>
+          <td [class.mayor]="totalA() > totalB()">{{ totalA() }}</td>
+          <td [class.mayor]="totalB() > totalA()">{{ totalB() }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="resumen">{{ resumen() }}</p>
+</section>

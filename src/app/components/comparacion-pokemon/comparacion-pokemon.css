@@ -1,0 +1,61 @@
+.comparacion {
+  margin-top: 16px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #2d3aa3;
+  font-size: 18px;
+}
+
+.tabla {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #e4e8f5;
+  text-align: center;
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.nombre {
+  text-transform: capitalize;
+}
+
+.mayor {
+  background-color: #e3f6e5;
+  color: #1b6b24;
+  font-weight: bold;
+}
+
+.total td {
+  border-top: 2px solid #c9cfe6;
+  font-weight: bold;
+}
+
+.resumen {
+  margin: 10px 0 0;
+  font-weight: bold;
+  text-align: center;
+}

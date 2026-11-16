@@ -1,0 +1,27 @@
+.contenedor {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.cabecera {
+  margin-bottom: 22px;
+  padding: 18px 16px;
+  background: linear-gradient(90deg, #3b4cca, #6f35fc);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(59, 76, 202, 0.35);
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 6px;
+  color: #ffcb05;
+  font-size: 34px;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #1d2a8a;
+}
+
+.descripcion {
+  margin: 0;
+  color: #e8ecff;
+}

@@ -1,0 +1,61 @@
+<article class="ficha" [class]="claseTipo()">
+  <header class="cabecera">
+    <h2>{{ pokemon().nombre }}</h2>
+    <span class="numero">#{{ especie().id }}</span>
+  </header>
+
+  <div class="imagen">
+    @if (pokemon().imagen; as imagen) {
+      <img [src]="imagen" [alt]="pokemon().nombre">
+    } @else {
+      <p>Sin imagen disponible</p>
+    }
+  </div>
+
+  <div class="cuerpo">
+    <p class="insignias">
+      @for (tipo of pokemon().tipos; track tipo) {
+        <span class="insignia" [class]="'insignia tipo-' + tipo">{{ traducirTipo(tipo) }}</span>
+      }
+      @if (especie().legendario) {
+        <span class="insignia especial">Legendario</span>
+      }
+      @if (especie().mitico) {
+        <span class="insignia especial">Mítico</span>
+      }
+    </p>
+
+    <p class="categoria">{{ especie().categoria }}</p>
+    <p class="descripcion">{{ especie().descripcion }}</p>
+
+    <div class="datos">
+      <p>Altura<strong>{{ pokemon().altura }} m</strong></p>
+      <p>Peso<strong>{{ pokemon().peso }} kg</strong></p>
+      <p>Hábitat<strong>{{ especie().habitat }}</strong></p>
+    </div>
+
+    <h3>Estadísticas base</h3>
+    <ul class="estadisticas">
+      @for (estadistica of pokemon().estadisticas; track estadistica.nombre) {
+        <li>
+          <span class="nombre-estadistica">{{ estadistica.nombre }}</span>
+          <progress [value]="estadistica.valor" max="255"></progress>
+          <strong>{{ estadistica.valor }}</strong>
+        </li>
+      }
+    </ul>
+    <p class="total">Total: <strong>{{ total() }}</strong></p>
+
+    <h3>Habilidades</h3>
+    <ul class="habilidades">
+      @for (habilidad of pokemon().habilidades; track habilidad.nombre) {
+        <li>
+          {{ habilidad.nombre }}
+          @if (habilidad.oculta) {
+            <span class="oculta">oculta</span>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</article>

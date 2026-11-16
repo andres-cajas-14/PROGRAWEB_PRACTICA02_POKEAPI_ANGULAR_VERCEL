@@ -1,0 +1,35 @@
+<app-buscador-pokemon
+  etiqueta="Buscar Pokémon"
+  [cargando]="cargando()"
+  [error]="error()"
+  (buscar)="cargar($event)" />
+@if (pokemon(); as p) {
+  @if (especie(); as e) {
+    <app-ficha-pokemon [pokemon]="p" [especie]="e" />
+    <app-cadena-evolutiva [etapas]="etapas()" [actualId]="e.id" (elegido)="irA($event)" />
+
+    <section class="comparar">
+      <button type="button" class="alternar" (click)="alternarComparacion()">
+        @if (comparando()) {
+          Ocultar comparación
+        } @else {
+          Comparar con otro Pokémon
+        }
+      </button>
+
+      @if (comparando()) {
+        <app-buscador-pokemon
+          etiqueta="Pokémon a comparar"
+          [cargando]="cargandoComparado()"
+          [error]="errorComparado()"
+          (buscar)="cargarComparado($event)" />
+
+        @if (comparado(); as c) {
+          <app-comparacion-pokemon [a]="p" [b]="c" />
+        }
+      }
+    </section>
+  }
+} @else if (!cargando()) {
+  <p class="vacio">Busca un Pokémon por nombre o número para ver su ficha y su familia evolutiva.</p>
+}

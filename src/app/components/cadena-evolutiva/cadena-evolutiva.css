@@ -1,0 +1,77 @@
+.cadena {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-top: 5px solid #6f35fc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  margin-top: 0;
+  color: #2d3aa3;
+  font-size: 18px;
+}
+
+.sin-evoluciones {
+  margin: 0;
+  color: #5a5f73;
+  font-style: italic;
+  text-align: center;
+}
+
+.etapas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.etapa {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.miembro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 110px;
+  padding: 8px;
+  background-color: #f1f3f9;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.miembro:hover {
+  background-color: #e4e8f5;
+}
+
+.actual {
+  background-color: #ece6ff;
+  border-color: #6f35fc;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+}
+
+.nombre {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.requisito {
+  color: #666666;
+  font-size: 12px;
+}
+
+.flecha {
+  color: #6f35fc;
+  font-size: 22px;
+}

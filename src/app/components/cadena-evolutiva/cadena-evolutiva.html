@@ -1,0 +1,31 @@
+<section class="cadena">
+  <h2>Cadena evolutiva</h2>
+
+  @if (sinEvoluciones()) {
+    <p class="sin-evoluciones">Este Pokémon no tiene evoluciones.</p>
+  } @else {
+    <div class="etapas">
+      @for (etapa of etapas(); track $index) {
+        <div class="etapa">
+          @for (item of etapa; track item.id) {
+            <button
+              type="button"
+              class="miembro"
+              [class.actual]="item.id === actualId()"
+              (click)="elegido.emit(item.id)">
+              <img [src]="imagen(item.id)" [alt]="item.nombre">
+              <span class="nombre">{{ item.nombre }}</span>
+              @if (item.requisito) {
+                <span class="requisito">{{ item.requisito }}</span>
+              }
+            </button>
+          }
+        </div>
+
+        @if (!$last) {
+          <span class="flecha">➜</span>
+        }
+      }
+    </div>
+  }
+</section>
